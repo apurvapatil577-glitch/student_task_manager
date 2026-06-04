@@ -313,8 +313,8 @@ def assign_task():
 # ==========================
 # STUDENT TASKS
 # ==========================
-@app.route('/student_tasks')
-def student_tasks():
+@app.route('/students_tasks')
+def students_tasks():
 
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
