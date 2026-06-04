@@ -313,7 +313,7 @@ def assign_task():
 # ==========================
 # STUDENT TASKS
 # ==========================
-@app.route('/student_tasks')
+@app.route('/students_tasks')
 def student_tasks():
 
     connection = get_db_connection()
@@ -334,14 +334,14 @@ def student_tasks():
     ON st.task_id=t.task_id
     """)
 
-    student_tasks = cursor.fetchall()
+    students_tasks = cursor.fetchall()
 
     cursor.close()
     connection.close()
 
     return render_template(
-        'student_tasks.html',
-        student_tasks=student_tasks
+        'students_tasks.html',
+        students_tasks=students_tasks
     )
 
 
