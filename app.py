@@ -313,8 +313,8 @@ def assign_task():
 # ==========================
 # STUDENT TASKS
 # ==========================
-@app.route('/students_tasks')
-def students_tasks():
+@app.route('/student_tasks')
+def student_tasks():
 
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
@@ -334,14 +334,14 @@ def students_tasks():
     ON st.task_id=t.task_id
     """)
 
-    students_tasks = cursor.fetchall()
+    student_tasks = cursor.fetchall()
 
     cursor.close()
     connection.close()
 
     return render_template(
-        'students_tasks.html',
-        students_tasks=students_tasks
+        'student_tasks.html',
+        student_tasks=student_tasks
     )
 
 
@@ -432,4 +432,3 @@ def logout():
 # ==========================
 if __name__ == '__main__':
     app.run(debug=True)
-        
