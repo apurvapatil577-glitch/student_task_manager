@@ -48,13 +48,21 @@ def dashboard():
     cursor.execute("SELECT COUNT(*) FROM tasks")
     task_count = cursor.fetchone()[0]
 
+    cursor.execute("SELECT COUNT(*) FROM attendance")
+    attendance_count = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM student_tasks")
+    assignment_count = cursor.fetchone()[0]
+
     cursor.close()
     connection.close()
 
     return render_template(
         'index.html',
         student_count=student_count,
-        task_count=task_count
+        task_count=task_count,
+        attendance_count=attendance_count,
+        assignment_count=assignment_count
     )
 
 
